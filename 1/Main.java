@@ -426,27 +426,59 @@ public class Main {
           }
           System.out.println("Select Order Number to be Proceed: ");
           int ordNum = scannerObj.nextInt();
-          int out = searchProd(productList, orderList.get(ordNum-1).id);
-          if (out != -1) {
-            int out1 = searchMf(manufacturerList, productList.get(out).manufacturer.id);
-            manufacturerList.get(out1).product_list
-                .remove(searchProd(manufacturerList.get(out1).product_list, id));
-            for (int i = 0; i < shopsList.size(); i++) {
-              for (int j = 0; j < shopsList.get(i).prodList.size(); j++) {
-                if (shopsList.get(i).prodList.get(j).product.id == id) {
-                  shopsList.get(i).prodList.remove(j);
+          boolean shopReady=false, delvReady=false;
+          int shopInd=0,delvInd=0,prodInd=0;
+          int minDelvery = Integer.MAX_VALUE;
+          for (int i = 0; i < shopsList.size(); i++) {
+            if(shopsList.get(i).zip!=orderList.get(ordNum-1).zip){
+              continue;
+            }
+            for (int j = 0; j < shopsList.get(i).prodList.size(); j++) {
+              if (shopsList.get(i).prodList.get(j).product.id == orderList.get(ordNum-1).product_list.get(0).product.id) {
+                if(shopsList.get(i).prodList.get(j).prodCount >= orderList.get(ordNum-1).product_list.get(0).prodCount){
+                  shopReady = true;
+                  shopInd = i;
+                  prodInd = j;
+                  break;
                 }
               }
             }
-            productList.remove(out);
-            System.out.println("Product Deleted Successfully!!!");
-          } else {
-            System.out.println("Please Enter a correct Product Id");
+            if(shopReady){
+              break;
+            }
+          }
+          for(int i=0; i<delvAgentList.size(); i++){
+            if(delvAgentList.get(i).zip==orderList.get(ordNum-1).zip && delvAgentList.get(i).prodDelivered < minDelvery){
+              delvReady = true;
+              delvInd = i;
+            }
+          }
+          if(delvReady && shopReady){
+            System.out.println("Order Places Successfully!!!");
+            System.out.println("Order Details:");
+            System.out.printf("Customer ID: %d, ", orderList.get(ordNum-1).id);
+            System.out.printf("Name: %s, ", orderList.get(ordNum-1).name);
+            System.out.printf("Zip Code: %d\n", orderList.get(ordNum-1).zip);
+            System.out.printf("Product ID: %d, Product Name: %s, No. of Copies: %d\n",
+                orderList.get(ordNum-1).product_list.get(0).product.id, orderList.get(ordNum-1).product_list.get(0).product.name,
+                orderList.get(ordNum-1).product_list.get(0).prodCount);
+            System.out.printf("Delivery Agent ID: %d, Name: %s\n",delvAgentList.get(delvInd).id,delvAgentList.get(delvInd).name);
+            System.out.printf("Shop ID: %d, Name: %s\n", shopsList.get(shopInd).id, shopsList.get(shopInd).name);
+            delvAgentList.get(delvInd).prodDelivered++;
+            customerList.get(searchCust(customerList, orderList.get(ordNum-1).id)).product_list.add(orderList.get(ordNum-1).product_list.get(0));
+            shopsList.get(shopInd).prodList.get(prodInd).prodCount -= orderList.get(ordNum-1).product_list.get(0).prodCount;
+            orderList.remove(ordNum-1);
+          }else{
+            if(!shopReady){
+              System.out.println("Product Demand can't be Satisfied");
+            }else{
+              System.out.println("Delivery Agent not Available");
+            }
           }
           break;
 
         case 8:
-
+          
           break;
 
         case 9:

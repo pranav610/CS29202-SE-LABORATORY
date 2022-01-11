@@ -55,7 +55,7 @@ public class Main {
               newManufacturer = new Manufacturer();
               createManufacturer(newManufacturer, scannerObj);
               manufacturerList.add(newManufacturer);
-              System.out.println("\nManufacturer Added Successfully!!\n");
+              System.out.println("\nManufacturer Added Successfully!!");
               break;
 
             case 2:
@@ -63,7 +63,7 @@ public class Main {
               newCustomer = new Customer();
               createCustomer(newCustomer, scannerObj);
               customerList.add(newCustomer);
-              System.out.println("\nCustomer Added Successfully!!\n");
+              System.out.println("\nCustomer Added Successfully!!");
               break;
 
             case 3:
@@ -71,7 +71,7 @@ public class Main {
               newProduct = new Product();
               createProduct(newProduct, scannerObj);
               productList.add(newProduct);
-              System.out.println("\nProduct Added Successfully!!\n");
+              System.out.println("\nProduct Added Successfully!!");
               addProdToMf(newProduct, manufacturerList, newProduct.manufacturer);
               break;
 
@@ -80,7 +80,7 @@ public class Main {
               newShop = new ShopsNWarehouses();
               createShop(newShop, scannerObj);
               shopsList.add(newShop);
-              System.out.println("\nShop/Warehouse Added Successfully!!\n");
+              System.out.println("\nShop/Warehouse Added Successfully!!");
               break;
 
             case 5:
@@ -88,7 +88,7 @@ public class Main {
               newDeliveryAgent = new DeliveryAgent();
               createDelivery(newDeliveryAgent, scannerObj);
               delvAgentList.add(newDeliveryAgent);
-              System.out.println("\nDelivery Agent Added Successfully!!\n");
+              System.out.println("\nDelivery Agent Added Successfully!!");
               break;
 
             default:
@@ -357,7 +357,7 @@ public class Main {
         case 5:
           printProdList(productList);
           System.out.println(
-              "Enter ID of the Desired Product, If the Product is not in the List add it using Create an Entity");
+              "Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity");
           int id_5_1, id_5_2;
           id_5_1 = scannerObj.nextInt();
           if (searchProd(productList, id_5_1) == -1) {
@@ -368,7 +368,7 @@ public class Main {
           nCopies = scannerObj.nextInt();
           printShopsList(shopsList);
           System.out.println(
-              "Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List add it using Create an Entity");
+              "Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity");
           id_5_2 = scannerObj.nextInt();
           if (searchShop(shopsList, id_5_2) == -1) {
             System.out.println("Please Enter a correct Shop/Warehouse ID");
@@ -379,13 +379,14 @@ public class Main {
           newTuple_5.product = productList.get(searchProd(productList, id_5_1));
           newTuple_5.prodCount = nCopies;
           shopsList.get(searchShop(shopsList, id_5_2)).prodList.add(newTuple_5);
+          System.out.println("Product added Successfully!!!");
           break;
 
         case 6:
           int id_6_1, id_6_2;
           printCustList(customerList);
           System.out.println(
-              "Enter ID of the Desired Customer, If the Customer is not in the List add it using Create an Entity");
+              "Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity");
           id_6_1 = scannerObj.nextInt();
           if (searchCust(customerList, id_6_1) == -1) {
             System.out.println("Please Enter a correct Customer ID");
@@ -424,18 +425,23 @@ public class Main {
                   orderList.get(i).product_list.get(j).prodCount);
             }
           }
+          if(orderList.size()==0){
+            System.out.println("This List is Empty");
+          }
           System.out.println("Select Order Number to be Proceed: ");
           int ordNum = scannerObj.nextInt();
-          boolean shopReady=false, delvReady=false;
-          int shopInd=0,delvInd=0,prodInd=0;
+          boolean shopReady = false, delvReady = false;
+          int shopInd = 0, delvInd = 0, prodInd = 0;
           int minDelvery = Integer.MAX_VALUE;
           for (int i = 0; i < shopsList.size(); i++) {
-            if(shopsList.get(i).zip!=orderList.get(ordNum-1).zip){
+            if (shopsList.get(i).zip != orderList.get(ordNum - 1).zip) {
               continue;
             }
             for (int j = 0; j < shopsList.get(i).prodList.size(); j++) {
-              if (shopsList.get(i).prodList.get(j).product.id == orderList.get(ordNum-1).product_list.get(0).product.id) {
-                if(shopsList.get(i).prodList.get(j).prodCount >= orderList.get(ordNum-1).product_list.get(0).prodCount){
+              if (shopsList.get(i).prodList.get(j).product.id == orderList.get(ordNum - 1).product_list
+                  .get(0).product.id) {
+                if (shopsList.get(i).prodList.get(j).prodCount >= orderList.get(ordNum - 1).product_list
+                    .get(0).prodCount) {
                   shopReady = true;
                   shopInd = i;
                   prodInd = j;
@@ -443,54 +449,115 @@ public class Main {
                 }
               }
             }
-            if(shopReady){
+            if (shopReady) {
               break;
             }
           }
-          for(int i=0; i<delvAgentList.size(); i++){
-            if(delvAgentList.get(i).zip==orderList.get(ordNum-1).zip && delvAgentList.get(i).prodDelivered < minDelvery){
+          for (int i = 0; i < delvAgentList.size(); i++) {
+            if (delvAgentList.get(i).zip == orderList.get(ordNum - 1).zip
+                && delvAgentList.get(i).prodDelivered < minDelvery) {
               delvReady = true;
               delvInd = i;
             }
           }
-          if(delvReady && shopReady){
+          if (delvReady && shopReady) {
             System.out.println("Order Places Successfully!!!");
             System.out.println("Order Details:");
-            System.out.printf("Customer ID: %d, ", orderList.get(ordNum-1).id);
-            System.out.printf("Name: %s, ", orderList.get(ordNum-1).name);
-            System.out.printf("Zip Code: %d\n", orderList.get(ordNum-1).zip);
+            System.out.printf("Customer ID: %d, ", orderList.get(ordNum - 1).id);
+            System.out.printf("Name: %s, ", orderList.get(ordNum - 1).name);
+            System.out.printf("Zip Code: %d\n", orderList.get(ordNum - 1).zip);
             System.out.printf("Product ID: %d, Product Name: %s, No. of Copies: %d\n",
-                orderList.get(ordNum-1).product_list.get(0).product.id, orderList.get(ordNum-1).product_list.get(0).product.name,
-                orderList.get(ordNum-1).product_list.get(0).prodCount);
-            System.out.printf("Delivery Agent ID: %d, Name: %s\n",delvAgentList.get(delvInd).id,delvAgentList.get(delvInd).name);
+                orderList.get(ordNum - 1).product_list.get(0).product.id,
+                orderList.get(ordNum - 1).product_list.get(0).product.name,
+                orderList.get(ordNum - 1).product_list.get(0).prodCount);
+            System.out.printf("Delivery Agent ID: %d, Name: %s\n", delvAgentList.get(delvInd).id,
+                delvAgentList.get(delvInd).name);
             System.out.printf("Shop ID: %d, Name: %s\n", shopsList.get(shopInd).id, shopsList.get(shopInd).name);
             delvAgentList.get(delvInd).prodDelivered++;
-            customerList.get(searchCust(customerList, orderList.get(ordNum-1).id)).product_list.add(orderList.get(ordNum-1).product_list.get(0));
-            shopsList.get(shopInd).prodList.get(prodInd).prodCount -= orderList.get(ordNum-1).product_list.get(0).prodCount;
-            orderList.remove(ordNum-1);
-          }else{
-            if(!shopReady){
+            customerList.get(searchCust(customerList, orderList.get(ordNum - 1).id)).product_list
+                .add(orderList.get(ordNum - 1).product_list.get(0));
+            shopsList.get(shopInd).prodList.get(prodInd).prodCount -= orderList.get(ordNum - 1).product_list
+                .get(0).prodCount;
+            orderList.remove(ordNum - 1);
+          } else {
+            if (!shopReady) {
               System.out.println("Product Demand can't be Satisfied");
-            }else{
+            } else {
               System.out.println("Delivery Agent not Available");
             }
           }
           break;
 
         case 8:
-          
+          int id_8_1;
+          printCustList(customerList);
+          System.out.println(
+              "Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity");
+          id_8_1 = scannerObj.nextInt();
+          if (searchCust(customerList, id_8_1) == -1) {
+            System.out.println("Please Enter a correct Customer ID");
+            break;
+          }
+          System.out.println("Customer's Purchase History:");
+          for (int i = 0; i < customerList.get(searchCust(customerList, id_8_1)).product_list.size(); i++) {
+            System.out.printf("Order No.%d:\n", i + 1);
+            System.out.printf("Product ID: %d, Name: %s\n",
+                customerList.get(searchCust(customerList, id_8_1)).product_list.get(i).product.id,
+                customerList.get(searchCust(customerList, id_8_1)).product_list.get(i).product.name);
+            System.out.printf("Number of Copies: %d\n",
+                customerList.get(searchCust(customerList, id_8_1)).product_list.get(i).prodCount);
+          }
+          if(customerList.get(searchCust(customerList, id_8_1)).product_list.size()==0){
+            System.out.println("This List is Empty");
+          }
+
           break;
 
         case 9:
-
+          int id_9_1;
+          printShopsList(shopsList);
+          System.out.println(
+              "Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity");
+          id_9_1 = scannerObj.nextInt();
+          if (searchShop(shopsList, id_9_1) == -1) {
+            System.out.println("Please Enter a correct Shop/Warehouse ID");
+            break;
+          }
+          System.out.println("Inventory:");
+          for (int i = 0; i < shopsList.get(searchShop(shopsList, id_9_1)).prodList.size(); i++) {
+            System.out.printf("%d. Product ID: %d, Name: %s\n",i+1,
+                shopsList.get(searchShop(shopsList, id_9_1)).prodList.get(i).product.id,
+                shopsList.get(searchShop(shopsList, id_9_1)).prodList.get(i).product.name);
+            System.out.printf("  Number of Copies: %d\n",
+            shopsList.get(searchShop(shopsList, id_9_1)).prodList.get(i).prodCount);
+          }
+          if(shopsList.get(searchShop(shopsList, id_9_1)).prodList.size()==0){
+            System.out.println("This List is Empty");
+          }
           break;
 
         case 10:
-
+          int id_10;
+          printMfList(manufacturerList);
+          System.out.println(
+              "Enter ID of the Desired Manufacturer, If the Manufacturer is not in the List Enter -1 & add it using Create an Entity");
+          id_10 = scannerObj.nextInt();
+          if (searchMf(manufacturerList, id_10) == -1) {
+            System.out.println("Please Enter a correct Manufacturer ID");
+            break;
+          }
+          System.out.println("List of All Products:");
+          for (int i = 0; i < manufacturerList.get(searchMf(manufacturerList, id_10)).product_list.size(); i++) {
+            System.out.printf("%d. Product ID: %d, Name: %s\n",i+1,
+                manufacturerList.get(searchMf(manufacturerList, id_10)).product_list.get(i).id,
+                manufacturerList.get(searchMf(manufacturerList, id_10)).product_list.get(i).name);
+          }
+          if(manufacturerList.get(searchMf(manufacturerList, id_10)).product_list.size()==0){
+            System.out.println("This List is Empty");
+          }
           break;
 
         case 11:
-
           break;
 
         default:
@@ -583,6 +650,9 @@ public class Main {
       System.out.printf("ID: %d\n", i.id);
       System.out.printf("Name: %s\n", i.name);
     }
+    if(input.size()==0){
+      System.out.println("This List is Empty");
+    }
   }
 
   static void printCustList(ArrayList<Customer> input) {
@@ -594,6 +664,9 @@ public class Main {
       System.out.printf("Name: %s\n", i.name);
       System.out.printf("Zip Code: %d\n", i.zip);
     }
+    if(input.size()==0){
+      System.out.println("This List is Empty");
+    }
   }
 
   static void printProdList(ArrayList<Product> input) {
@@ -603,6 +676,9 @@ public class Main {
       System.out.printf("Details of Product No.%d:\n", count++);
       System.out.printf("ID: %d\n", i.id);
       System.out.printf("Name: %s\n", i.name);
+    }
+    if(input.size()==0){
+      System.out.println("This List is Empty");
     }
   }
 
@@ -615,6 +691,9 @@ public class Main {
       System.out.printf("Name: %s\n", i.name);
       System.out.printf("Zip Code: %d\n", i.zip);
     }
+    if(input.size()==0){
+      System.out.println("This List is Empty");
+    }
   }
 
   static void printAgentList(ArrayList<DeliveryAgent> input) {
@@ -626,6 +705,9 @@ public class Main {
       System.out.printf("Name: %s\n", i.name);
       System.out.printf("Zip Code: %d\n", i.zip);
       System.out.printf("Products Deliverd: %d\n", i.prodDelivered);
+    }
+    if(input.size()==0){
+      System.out.println("This List is Empty");
     }
   }
 

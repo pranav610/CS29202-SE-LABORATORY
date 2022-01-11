@@ -26,146 +26,16 @@ Please Enter Choice Number...
 3
 
 Enter the Product Id: 
-11
+244
 Enter the Product Name: 
-Chai
+Paracetamol
 
 Enter the Manufacturer Id: 
-12
+25
 Enter the Manufacturer Name: 
-Chaiwala
+ManuA
 
 Product Added Successfully!!
-
-
-Choice-1:  Create an Entity
-Choice-2:  Delete an Entity
-Choice-3:  Print an Entity
-Choice-4:  Add a Product to Manufacturer
-Choice-5:  Add a Product to a Shop
-Choice-6:  Add an Order of a Product from a Customer
-Choice-7:  Process an Order
-Choice-8:  List all the Purchases made by a Customer
-Choice-9:  List Inventory of a Shop
-Choice-10: List all the Products made by a Manufacturer
-Choice-11: Close the Program
-
-Please Enter Choice Number...
-5
-
-List of all Products:
-Details of Product No.1:
-ID: 11
-Name: Chai
-Enter ID of the Desired Product, If the Product is not in the List add it using Create an Entity
-11
-Enter the Number of Copies
-5
-
-List of all Shops/Warehouses:
-Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List add it using Create an Entity
-1
-Please Enter a correct Shop/Warehouse ID
-
-Choice-1:  Create an Entity
-Choice-2:  Delete an Entity
-Choice-3:  Print an Entity
-Choice-4:  Add a Product to Manufacturer
-Choice-5:  Add a Product to a Shop
-Choice-6:  Add an Order of a Product from a Customer
-Choice-7:  Process an Order
-Choice-8:  List all the Purchases made by a Customer
-Choice-9:  List Inventory of a Shop
-Choice-10: List all the Products made by a Manufacturer
-Choice-11: Close the Program
-
-Please Enter Choice Number...
-1
-
-Choice-1: Create a Manufacturer
-Choice-2: Create a Customer
-Choice-3: Create a Product
-Choice-4: Create a Shop or Warehouse
-Choice-5: Create a Delivery Agent
-
-Please Enter Choice Number...
-4
-
-Enter the Shop/Warehouse Id: 
-13
-Enter the Shop/Warehouse Name: 
-Chai ka thela
-Enter the Shop/Warehouse Zip Code: 
-431601
-
-Shop/Warehouse Added Successfully!!
-
-
-Choice-1:  Create an Entity
-Choice-2:  Delete an Entity
-Choice-3:  Print an Entity
-Choice-4:  Add a Product to Manufacturer
-Choice-5:  Add a Product to a Shop
-Choice-6:  Add an Order of a Product from a Customer
-Choice-7:  Process an Order
-Choice-8:  List all the Purchases made by a Customer
-Choice-9:  List Inventory of a Shop
-Choice-10: List all the Products made by a Manufacturer
-Choice-11: Close the Program
-
-Please Enter Choice Number...
-5
-
-List of all Products:
-Details of Product No.1:
-ID: 11
-Name: Chai
-Enter ID of the Desired Product, If the Product is not in the List add it using Create an Entity
-11
-Enter the Number of Copies
-10
-
-List of all Shops/Warehouses:
-Details of Shop/Warehouse No.1:
-ID: 13
-Name: Chai ka thela
-Zip Code: 431601
-Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List add it using Create an Entity
-13
-
-Choice-1:  Create an Entity
-Choice-2:  Delete an Entity
-Choice-3:  Print an Entity
-Choice-4:  Add a Product to Manufacturer
-Choice-5:  Add a Product to a Shop
-Choice-6:  Add an Order of a Product from a Customer
-Choice-7:  Process an Order
-Choice-8:  List all the Purchases made by a Customer
-Choice-9:  List Inventory of a Shop
-Choice-10: List all the Products made by a Manufacturer
-Choice-11: Close the Program
-
-Please Enter Choice Number...
-1
-
-Choice-1: Create a Manufacturer
-Choice-2: Create a Customer
-Choice-3: Create a Product
-Choice-4: Create a Shop or Warehouse
-Choice-5: Create a Delivery Agent
-
-Please Enter Choice Number...
-2
-
-Enter the Customer Id: 
-14
-Enter the Customer Name: 
-Pranav
-Enter the Customers Zip Code: 
-431601
-
-Customer Added Successfully!!
-
 
 Choice-1:  Create an Entity
 Choice-2:  Delete an Entity
@@ -192,14 +62,279 @@ Please Enter Choice Number...
 5
 
 Enter the Delivery Agent Id: 
-15
+0
 Enter the Delivery Name: 
-Umang
+Chirag
 Enter the Delivery Agent Zip Code: 
-431601
+400000
 
 Delivery Agent Added Successfully!!
 
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+1
+
+Choice-1: Create a Manufacturer
+Choice-2: Create a Customer
+Choice-3: Create a Product
+Choice-4: Create a Shop or Warehouse
+Choice-5: Create a Delivery Agent
+
+Please Enter Choice Number...
+5
+
+Enter the Delivery Agent Id: 
+1
+Enter the Delivery Name: 
+souvik
+Enter the Delivery Agent Zip Code: 
+400000
+
+Delivery Agent Added Successfully!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+2
+
+Choice-1: Delete a Manufacturer
+Choice-2: Delete a Customer
+Choice-3: Delete a Product
+Choice-4: Delete a Shop/Warehouse
+Choice-5: Delete a Delivery Agent
+
+Please Enter Choice Number...
+5
+
+Choice-1: Search by ID
+Choice-2: Search by Name
+Please Enter Choice Number...
+1
+
+Enter the Delivery Agent Id: 
+1
+Delivery Agent Deleted Successfully!!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+3
+
+Choice-1: Display List of Manufacturers
+Choice-2: Display List of Customers
+Choice-3: Display List of Products
+Choice-4: Display List of Shops and Warehouses
+Choice-5: Display List of Delivery Agents
+
+Please Enter Choice Number...
+5
+
+List of all Delivery Agents:
+Details of Delivery Agent No.1:
+ID: 0
+Name: Chirag
+Zip Code: 400000
+Products Deliverd: 0
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+1
+
+Choice-1: Create a Manufacturer
+Choice-2: Create a Customer
+Choice-3: Create a Product
+Choice-4: Create a Shop or Warehouse
+Choice-5: Create a Delivery Agent
+
+Please Enter Choice Number...
+5
+
+Enter the Delivery Agent Id: 
+1
+Enter the Delivery Name: 
+Souvik
+Enter the Delivery Agent Zip Code: 
+400000
+
+Delivery Agent Added Successfully!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+1
+
+Choice-1: Create a Manufacturer
+Choice-2: Create a Customer
+Choice-3: Create a Product
+Choice-4: Create a Shop or Warehouse
+Choice-5: Create a Delivery Agent
+
+Please Enter Choice Number...
+4
+
+Enter the Shop/Warehouse Id: 
+2
+Enter the Shop/Warehouse Name: 
+A
+Enter the Shop/Warehouse Zip Code: 
+400000
+
+Shop/Warehouse Added Successfully!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+1
+
+Choice-1: Create a Manufacturer
+Choice-2: Create a Customer
+Choice-3: Create a Product
+Choice-4: Create a Shop or Warehouse
+Choice-5: Create a Delivery Agent
+
+Please Enter Choice Number...
+2
+
+Enter the Customer Id: 
+3
+Enter the Customer Name: 
+B
+Enter the Customers Zip Code: 
+400000
+
+Customer Added Successfully!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+1
+
+Choice-1: Create a Manufacturer
+Choice-2: Create a Customer
+Choice-3: Create a Product
+Choice-4: Create a Shop or Warehouse
+Choice-5: Create a Delivery Agent
+
+Please Enter Choice Number...
+4
+
+Enter the Shop/Warehouse Id: 
+4444
+Enter the Shop/Warehouse Name: 
+C
+Enter the Shop/Warehouse Zip Code: 
+400000
+
+Shop/Warehouse Added Successfully!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+5
+
+List of all Products:
+Details of Product No.1:
+ID: 244
+Name: Paracetamol
+Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity
+244
+Enter the Number of Copies
+500
+
+List of all Shops/Warehouses:
+Details of Shop/Warehouse No.1:
+ID: 2
+Name: A
+Zip Code: 400000
+Details of Shop/Warehouse No.2:
+ID: 4444
+Name: C
+Zip Code: 400000
+Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity
+4444
+Product added Successfully!!!
 
 Choice-1:  Create an Entity
 Choice-2:  Delete an Entity
@@ -218,20 +353,91 @@ Please Enter Choice Number...
 
 List of all Customers:
 Details of Customer No.1:
-ID: 14
-Name: Pranav
-Zip Code: 431601
-Enter ID of the Desired Customer, If the Customer is not in the List add it using Create an Entity
-14
+ID: 3
+Name: B
+Zip Code: 400000
+Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity
+3
 
 List of all Products:
 Details of Product No.1:
-ID: 11
-Name: Chai
+ID: 244
+Name: Paracetamol
 Enter ID of the Desired Product
-11
+244
+Enter the Number of Copies
+2
+Order Added Successfully!!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+6 
+
+List of all Customers:
+Details of Customer No.1:
+ID: 3
+Name: B
+Zip Code: 400000
+Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity
+3
+
+List of all Products:
+Details of Product No.1:
+ID: 244
+Name: Paracetamol
+Enter ID of the Desired Product
+244
 Enter the Number of Copies
 5
+Order Added Successfully!!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+5
+
+List of all Products:
+Details of Product No.1:
+ID: 244
+Name: Paracetamol
+Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity
+244
+Enter the Number of Copies
+4
+
+List of all Shops/Warehouses:
+Details of Shop/Warehouse No.1:
+ID: 2
+Name: A
+Zip Code: 400000
+Details of Shop/Warehouse No.2:
+ID: 4444
+Name: C
+Zip Code: 400000
+Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity
+2
+Product added Successfully!!!
 
 Choice-1:  Create an Entity
 Choice-2:  Delete an Entity
@@ -250,16 +456,377 @@ Please Enter Choice Number...
 List of Pending Orders: 
 
 Order No.1:
-Customer ID: 14, Name: Pranav, Zip Code: 431601
-Product ID: 11, Product Name: Chai, No. of Copies: 5
+Customer ID: 3, Name: B, Zip Code: 400000
+Product ID: 244, Product Name: Paracetamol, No. of Copies: 2
+
+Order No.2:
+Customer ID: 3, Name: B, Zip Code: 400000
+Product ID: 244, Product Name: Paracetamol, No. of Copies: 5
+Select Order Number to be Proceed: 
+2
+Order Placed Successfully!!!
+Order Details:
+Customer ID: 3, Name: B, Zip Code: 400000
+Product ID: 244, Product Name: Paracetamol, No. of Copies: 5
+Delivery Agent ID: 0, Name: Chirag
+Shop ID: 4444, Name: C
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+7
+List of Pending Orders: 
+
+Order No.1:
+Customer ID: 3, Name: B, Zip Code: 400000
+Product ID: 244, Product Name: Paracetamol, No. of Copies: 2
 Select Order Number to be Proceed: 
 1
-Order Places Successfully!!!
+Order Placed Successfully!!!
 Order Details:
-Customer ID: 14, Name: Pranav, Zip Code: 431601
-Product ID: 11, Product Name: Chai, No. of Copies: 5
-Delivery Agent ID: 15, Name: Umang
-Shop ID: 13, Name: Chai ka thela
+Customer ID: 3, Name: B, Zip Code: 400000
+Product ID: 244, Product Name: Paracetamol, No. of Copies: 2
+Delivery Agent ID: 1, Name: Souvik
+Shop ID: 2, Name: A
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+2
+
+Choice-1: Delete a Manufacturer
+Choice-2: Delete a Customer
+Choice-3: Delete a Product
+Choice-4: Delete a Shop/Warehouse
+Choice-5: Delete a Delivery Agent
+
+Please Enter Choice Number...
+3
+
+Choice-1: Search by ID
+Choice-2: Search by Name
+Please Enter Choice Number...
+1
+
+Enter the Product Id: 
+244
+Product Deleted Successfully!!!
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+3
+
+Choice-1: Display List of Manufacturers
+Choice-2: Display List of Customers
+Choice-3: Display List of Products
+Choice-4: Display List of Shops and Warehouses
+Choice-5: Display List of Delivery Agents
+
+Please Enter Choice Number...
+1
+
+List of all Manufactures:
+Details of Manufacturer No.1:
+ID: 25
+Name: ManuA
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+3
+
+Choice-1: Display List of Manufacturers
+Choice-2: Display List of Customers
+Choice-3: Display List of Products
+Choice-4: Display List of Shops and Warehouses
+Choice-5: Display List of Delivery Agents
+
+Please Enter Choice Number...
+2
+
+List of all Customers:
+Details of Customer No.1:
+ID: 3
+Name: B
+Zip Code: 400000
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+3
+
+Choice-1: Display List of Manufacturers
+Choice-2: Display List of Customers
+Choice-3: Display List of Products
+Choice-4: Display List of Shops and Warehouses
+Choice-5: Display List of Delivery Agents
+
+Please Enter Choice Number...
+3
+
+List of all Products:
+This List is Empty
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+3
+
+Choice-1: Display List of Manufacturers
+Choice-2: Display List of Customers
+Choice-3: Display List of Products
+Choice-4: Display List of Shops and Warehouses
+Choice-5: Display List of Delivery Agents
+
+Please Enter Choice Number...
+4
+
+List of all Shops/Warehouses:
+Details of Shop/Warehouse No.1:
+ID: 2
+Name: A
+Zip Code: 400000
+Details of Shop/Warehouse No.2:
+ID: 4444
+Name: C
+Zip Code: 400000
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+3
+
+Choice-1: Display List of Manufacturers
+Choice-2: Display List of Customers
+Choice-3: Display List of Products
+Choice-4: Display List of Shops and Warehouses
+Choice-5: Display List of Delivery Agents
+
+Please Enter Choice Number...
+5
+
+List of all Delivery Agents:
+Details of Delivery Agent No.1:
+ID: 0
+Name: Chirag
+Zip Code: 400000
+Products Deliverd: 1
+Details of Delivery Agent No.2:
+ID: 1
+Name: Souvik
+Zip Code: 400000
+Products Deliverd: 1
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+9
+
+List of all Shops/Warehouses:
+Details of Shop/Warehouse No.1:
+ID: 2
+Name: A
+Zip Code: 400000
+Details of Shop/Warehouse No.2:
+ID: 4444
+Name: C
+Zip Code: 400000
+Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity
+2
+Inventory:
+This List is Empty
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+9
+
+List of all Shops/Warehouses:
+Details of Shop/Warehouse No.1:
+ID: 2
+Name: A
+Zip Code: 400000
+Details of Shop/Warehouse No.2:
+ID: 4444
+Name: C
+Zip Code: 400000
+Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity
+444
+Please Enter a correct Shop/Warehouse ID
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+9
+
+List of all Shops/Warehouses:
+Details of Shop/Warehouse No.1:
+ID: 2
+Name: A
+Zip Code: 400000
+Details of Shop/Warehouse No.2:
+ID: 4444
+Name: C
+Zip Code: 400000
+Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity
+4444
+Inventory:
+This List is Empty
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+8
+
+List of all Customers:
+Details of Customer No.1:
+ID: 3
+Name: B
+Zip Code: 400000
+Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity
+3
+Customer's Purchase History:
+Order No.1:
+Product ID: 244, Name: Paracetamol
+Number of Copies: 5
+Order No.2:
+Product ID: 244, Name: Paracetamol
+Number of Copies: 2
+
+Choice-1:  Create an Entity
+Choice-2:  Delete an Entity
+Choice-3:  Print an Entity
+Choice-4:  Add a Product to Manufacturer
+Choice-5:  Add a Product to a Shop
+Choice-6:  Add an Order of a Product from a Customer
+Choice-7:  Process an Order
+Choice-8:  List all the Purchases made by a Customer
+Choice-9:  List Inventory of a Shop
+Choice-10: List all the Products made by a Manufacturer
+Choice-11: Close the Program
+
+Please Enter Choice Number...
+10
+
+List of all Manufactures:
+Details of Manufacturer No.1:
+ID: 25
+Name: ManuA
+Enter ID of the Desired Manufacturer, If the Manufacturer is not in the List Enter -1 & add it using Create an Entity
+25
+List of All Products:
+This List is Empty
 
 Choice-1:  Create an Entity
 Choice-2:  Delete an Entity

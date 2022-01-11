@@ -8,19 +8,24 @@ public class Main {
   public static void main(String[] args) {
     ArrayList<Manufacturer> manufacturerList;
     manufacturerList = new ArrayList<Manufacturer>();
+    int mfCount = 0;
     ArrayList<Customer> customerList;
     customerList = new ArrayList<Customer>();
+    int custCount = 0;
     ArrayList<Product> productList;
     productList = new ArrayList<Product>();
+    int prodCount = 0;
     ArrayList<ShopsNWarehouses> shopsList;
     shopsList = new ArrayList<ShopsNWarehouses>();
+    int shopCount = 0;
     ArrayList<DeliveryAgent> delvAgentList;
     delvAgentList = new ArrayList<DeliveryAgent>();
-    Scanner scannerObj = new Scanner(System.in);
+    int delvCount = 0;
     ArrayList<Customer> orderList;
     orderList = new ArrayList<Customer>();
-    System.out.println("\n-----Java-----");
-    System.out.println("Welcome!!");
+    Scanner scannerObj = new Scanner(System.in);
+    System.out.println("\n-----The Master Interface-----");
+    System.out.println("Welcome!!!");
 
     int choice = 0;
     int id, nCopies;
@@ -54,41 +59,45 @@ public class Main {
               Manufacturer newManufacturer;
               newManufacturer = new Manufacturer();
               createManufacturer(newManufacturer, scannerObj);
+              newManufacturer.id = 100+mfCount++;
               manufacturerList.add(newManufacturer);
-              System.out.println("\nManufacturer Added Successfully!!");
+              System.out.printf("\nManufacturer Added Successfully!!! with ID: %d\n",newManufacturer.id);
               break;
 
             case 2:
               Customer newCustomer;
               newCustomer = new Customer();
               createCustomer(newCustomer, scannerObj);
+              newCustomer.id = 200+custCount++;
               customerList.add(newCustomer);
-              System.out.println("\nCustomer Added Successfully!!");
+              System.out.printf("\nCustomer Added Successfully!!! with ID: %d\n",newCustomer.id);
               break;
 
             case 3:
               Product newProduct;
               newProduct = new Product();
               createProduct(newProduct, scannerObj);
+              newProduct.id = 300+prodCount++;
               productList.add(newProduct);
-              System.out.println("\nProduct Added Successfully!!");
-              addProdToMf(newProduct, manufacturerList, newProduct.manufacturer);
+              System.out.printf("\nProduct Added Successfully!!! with ID: %d\n", newProduct.id);
               break;
 
             case 4:
               ShopsNWarehouses newShop;
               newShop = new ShopsNWarehouses();
               createShop(newShop, scannerObj);
+              newShop.id = 400+shopCount++;
               shopsList.add(newShop);
-              System.out.println("\nShop/Warehouse Added Successfully!!");
+              System.out.printf("\nShop/Warehouse Added Successfully!!! with ID: %d\n", newShop.id);
               break;
 
             case 5:
               DeliveryAgent newDeliveryAgent;
               newDeliveryAgent = new DeliveryAgent();
               createDelivery(newDeliveryAgent, scannerObj);
+              newDeliveryAgent.id = 500+delvCount++;
               delvAgentList.add(newDeliveryAgent);
-              System.out.println("\nDelivery Agent Added Successfully!!");
+              System.out.printf("\nDelivery Agent Added Successfully!!! with ID: %d\n", newDeliveryAgent.id);
               break;
 
             default:
@@ -112,12 +121,14 @@ public class Main {
               choice = scannerObj.nextInt();
               switch (choice) {
                 case 1:
-                  System.out.println("\nEnter the Manufacturer Id: ");
+                  System.out.println("\nEnter the Manufacturer ID: ");
                   id = scannerObj.nextInt();
                   int out = searchMf(manufacturerList, id);
                   if (out != -1) {
+                    Manufacturer emptyManufacturer;
+                    emptyManufacturer = new Manufacturer();
                     for (int i = 0; i < manufacturerList.get(out).product_list.size(); i++) {
-                      productList.remove(searchProd(productList, manufacturerList.get(out).product_list.get(i).id));
+                      productList.get(searchProd(productList, manufacturerList.get(out).product_list.get(i).id)).manufacturer = emptyManufacturer;
                     }
                     manufacturerList.remove(out);
                     System.out.println("Manufacture Deleted Successfully!!!");
@@ -132,8 +143,10 @@ public class Main {
                   name = scannerObj.nextLine();
                   out = searchMf(manufacturerList, name);
                   if (out != -1) {
+                    Manufacturer emptyManufacturer;
+                    emptyManufacturer = new Manufacturer();
                     for (int i = 0; i < manufacturerList.get(out).product_list.size(); i++) {
-                      productList.remove(searchProd(productList, manufacturerList.get(out).product_list.get(i).id));
+                      productList.get(searchProd(productList, manufacturerList.get(out).product_list.get(i).id)).manufacturer = emptyManufacturer;
                     }
                     manufacturerList.remove(out);
                     System.out.println("Manufacture Deleted Successfully!!!");
@@ -153,7 +166,7 @@ public class Main {
               choice = scannerObj.nextInt();
               switch (choice) {
                 case 1:
-                  System.out.println("\nEnter the Customer Id: ");
+                  System.out.println("\nEnter the Customer ID: ");
                   id = scannerObj.nextInt();
                   int out = searchCust(customerList, id);
                   if (out != -1) {
@@ -188,7 +201,7 @@ public class Main {
               choice = scannerObj.nextInt();
               switch (choice) {
                 case 1:
-                  System.out.println("\nEnter the Product Id: ");
+                  System.out.println("\nEnter the Product ID: ");
                   id = scannerObj.nextInt();
                   int out = searchProd(productList, id);
                   if (out != -1) {
@@ -205,7 +218,7 @@ public class Main {
                     productList.remove(out);
                     System.out.println("Product Deleted Successfully!!!");
                   } else {
-                    System.out.println("Please Enter a correct Product Id");
+                    System.out.println("Please Enter a correct Product ID");
                   }
                   break;
                 case 2:
@@ -243,7 +256,7 @@ public class Main {
               choice = scannerObj.nextInt();
               switch (choice) {
                 case 1:
-                  System.out.println("\nEnter the Shop/Warehouse Id: ");
+                  System.out.println("\nEnter the Shop/Warehouse ID: ");
                   id = scannerObj.nextInt();
                   int out = searchShop(shopsList, id);
                   if (out != -1) {
@@ -278,7 +291,7 @@ public class Main {
               choice = scannerObj.nextInt();
               switch (choice) {
                 case 1:
-                  System.out.println("\nEnter the Delivery Agent Id: ");
+                  System.out.println("\nEnter the Delivery Agent ID: ");
                   id = scannerObj.nextInt();
                   int out = searchDelv(delvAgentList, id);
                   if (out != -1) {
@@ -346,19 +359,37 @@ public class Main {
           break;
 
         case 4:
-          Product newProduct;
-          newProduct = new Product();
-          createProduct(newProduct, scannerObj);
-          productList.add(newProduct);
-          System.out.println("\nProduct Added to Manufacturer Successfully!!\n");
-          addProdToMf(newProduct, manufacturerList, newProduct.manufacturer);
+          int id_4_1,id_4_2;
+          int ind_4_1, ind_4_2;
+          printProdList(productList);
+          System.out.println("Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity");
+          id_4_1 = scannerObj.nextInt();
+          ind_4_1 = searchProd(productList,id_4_1);
+          if(ind_4_1!=-1){
+            printMfList(manufacturerList);
+            System.out.println("Enter ID of the Desired Manufacturer, If the Manufacturer is not in the List Enter -1 & add it using Create an Entity");
+            id_4_2 = scannerObj.nextInt();
+            ind_4_2 = searchMf(manufacturerList, id_4_2);
+            if(ind_4_2!=-1){
+              manufacturerList.get(ind_4_2).product_list.add(productList.get(ind_4_1));
+              productList.get(ind_4_1).manufacturer = manufacturerList.get(ind_4_2);
+              System.out.println("Product Added to the Manufacturer Successfully!!!");
+            }
+            else{
+              System.out.println("Please Enter a correct Manufacturer ID");
+              break;
+            }
+          }else{
+            System.out.println("Please Enter a correct Product ID");
+            break;
+          }
           break;
 
         case 5:
           printProdList(productList);
           System.out.println(
               "Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity");
-          int id_5_1, id_5_2;
+          int id_5_1, id_5_2, ind_5_1, ind_5_2;
           id_5_1 = scannerObj.nextInt();
           if (searchProd(productList, id_5_1) == -1) {
             System.out.println("Please Enter a correct Product ID");
@@ -370,16 +401,22 @@ public class Main {
           System.out.println(
               "Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity");
           id_5_2 = scannerObj.nextInt();
-          if (searchShop(shopsList, id_5_2) == -1) {
+          ind_5_1 = searchShop(shopsList, id_5_2);
+          if (ind_5_1 == -1) {
             System.out.println("Please Enter a correct Shop/Warehouse ID");
             break;
           }
-          Tuple newTuple_5;
-          newTuple_5 = new Tuple();
-          newTuple_5.product = productList.get(searchProd(productList, id_5_1));
-          newTuple_5.prodCount = nCopies;
-          shopsList.get(searchShop(shopsList, id_5_2)).prodList.add(newTuple_5);
-          System.out.println("Product added Successfully!!!");
+          ind_5_2 = searchTuple(shopsList.get(ind_5_1).prodList, id_5_1);
+          if(ind_5_2!=-1){
+            shopsList.get(ind_5_1).prodList.get(ind_5_1).prodCount+=nCopies;
+          }else{
+            Tuple newTuple_5;
+            newTuple_5 = new Tuple();
+            newTuple_5.product = productList.get(searchProd(productList, id_5_1));
+            newTuple_5.prodCount = nCopies;
+            shopsList.get(searchShop(shopsList, id_5_2)).prodList.add(newTuple_5);
+          }
+          System.out.println("\nProduct added Successfully!!!");
           break;
 
         case 6:
@@ -403,13 +440,17 @@ public class Main {
           nCopies = scannerObj.nextInt();
           Customer newCustomer_6;
           newCustomer_6 = new Customer();
-          newCustomer_6 = customerList.get(searchCust(customerList, id_6_1));
+          newCustomer_6.id = customerList.get(searchCust(customerList, id_6_1)).id;
+          newCustomer_6.zip = customerList.get(searchCust(customerList, id_6_1)).zip;
+          newCustomer_6.name = customerList.get(searchCust(customerList, id_6_1)).name;
+
           Tuple newTuple_6;
           newTuple_6 = new Tuple();
           newTuple_6.prodCount = nCopies;
           newTuple_6.product = productList.get(searchProd(productList, id_6_2));
           newCustomer_6.product_list.add(newTuple_6);
           orderList.add(newCustomer_6);
+          System.out.println("Order Added Successfully!!!");
           break;
 
         case 7:
@@ -458,10 +499,11 @@ public class Main {
                 && delvAgentList.get(i).prodDelivered < minDelvery) {
               delvReady = true;
               delvInd = i;
+              minDelvery = delvAgentList.get(i).prodDelivered;
             }
           }
           if (delvReady && shopReady) {
-            System.out.println("Order Places Successfully!!!");
+            System.out.println("Order Placed Successfully!!!");
             System.out.println("Order Details:");
             System.out.printf("Customer ID: %d, ", orderList.get(ordNum - 1).id);
             System.out.printf("Name: %s, ", orderList.get(ordNum - 1).name);
@@ -528,7 +570,7 @@ public class Main {
             System.out.printf("%d. Product ID: %d, Name: %s\n",i+1,
                 shopsList.get(searchShop(shopsList, id_9_1)).prodList.get(i).product.id,
                 shopsList.get(searchShop(shopsList, id_9_1)).prodList.get(i).product.name);
-            System.out.printf("  Number of Copies: %d\n",
+            System.out.printf("   Number of Copies: %d\n",
             shopsList.get(searchShop(shopsList, id_9_1)).prodList.get(i).prodCount);
           }
           if(shopsList.get(searchShop(shopsList, id_9_1)).prodList.size()==0){
@@ -570,74 +612,53 @@ public class Main {
   }
 
   static void createManufacturer(Manufacturer input, Scanner scannerObj) {
-    int id;
     String name;
-    System.out.println("\nEnter the Manufacturer Id: ");
-    id = scannerObj.nextInt();
     scannerObj.nextLine();
     System.out.println("Enter the Manufacturer Name: ");
     name = scannerObj.nextLine();
-    input.id = id;
     input.name = name;
   }
 
   static void createCustomer(Customer input, Scanner scannerObj) {
-    int id, zip;
+    int zip;
     String name;
-    System.out.println("\nEnter the Customer Id: ");
-    id = scannerObj.nextInt();
     scannerObj.nextLine();
     System.out.println("Enter the Customer Name: ");
     name = scannerObj.nextLine();
     System.out.println("Enter the Customers Zip Code: ");
     zip = scannerObj.nextInt();
-    input.id = id;
     input.name = name;
     input.zip = zip;
   }
 
   static void createProduct(Product input, Scanner scannerObj) {
-    int id;
     String name;
-    Manufacturer mfName;
-    mfName = new Manufacturer();
-    System.out.println("\nEnter the Product Id: ");
-    id = scannerObj.nextInt();
     scannerObj.nextLine();
     System.out.println("Enter the Product Name: ");
     name = scannerObj.nextLine();
-    createManufacturer(mfName, scannerObj);
-    input.id = id;
     input.name = name;
-    input.manufacturer = mfName;
   }
 
   static void createShop(ShopsNWarehouses input, Scanner scannerObj) {
-    int id, zip;
+    int zip;
     String name;
-    System.out.println("\nEnter the Shop/Warehouse Id: ");
-    id = scannerObj.nextInt();
     scannerObj.nextLine();
     System.out.println("Enter the Shop/Warehouse Name: ");
     name = scannerObj.nextLine();
     System.out.println("Enter the Shop/Warehouse Zip Code: ");
     zip = scannerObj.nextInt();
-    input.id = id;
     input.name = name;
     input.zip = zip;
   }
 
   static void createDelivery(DeliveryAgent input, Scanner scannerObj) {
-    int id, zip;
+    int zip;
     String name;
-    System.out.println("\nEnter the Delivery Agent Id: ");
-    id = scannerObj.nextInt();
     scannerObj.nextLine();
     System.out.println("Enter the Delivery Name: ");
     name = scannerObj.nextLine();
     System.out.println("Enter the Delivery Agent Zip Code: ");
     zip = scannerObj.nextInt();
-    input.id = id;
     input.name = name;
     input.zip = zip;
   }
@@ -801,12 +822,21 @@ public class Main {
     return -1;
   }
 
-  static void addProdToMf(Product newProduct, ArrayList<Manufacturer> mflist, Manufacturer mfInput) {
+  static int searchTuple(ArrayList<Tuple> input, int id){
+    for(int i=0; i<input.size();i++){
+      if(input.get(i).product.id==id){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  static int addProdToMf(Product newProduct, ArrayList<Manufacturer> mflist, Manufacturer mfInput) {
     if (searchMf(mflist, mfInput.id) != -1) {
       mflist.get(searchMf(mflist, mfInput.id)).product_list.add(newProduct);
     } else {
-      mfInput.product_list.add(newProduct);
-      mflist.add(mfInput);
+      System.out.println("Manufacturer doesn't exist, Add it using Create an Entity");
     }
+    return searchMf(mflist, mfInput.id);
   }
 }

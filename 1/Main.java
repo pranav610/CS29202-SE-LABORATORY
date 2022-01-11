@@ -1,36 +1,44 @@
-import java.util.*;
+import java.util.*; // To use inbuilt classes like scanner, array list
 
-/**
- * Main
- */
+
 public class Main {
 
   public static void main(String[] args) {
+    // Array lists to store list of various entities
+    // And count variables to keep account of how many entities were entered to assign ID
     ArrayList<Manufacturer> manufacturerList;
     manufacturerList = new ArrayList<Manufacturer>();
     int mfCount = 0;
+
     ArrayList<Customer> customerList;
     customerList = new ArrayList<Customer>();
     int custCount = 0;
+
     ArrayList<Product> productList;
     productList = new ArrayList<Product>();
     int prodCount = 0;
+
     ArrayList<ShopsNWarehouses> shopsList;
     shopsList = new ArrayList<ShopsNWarehouses>();
     int shopCount = 0;
+
     ArrayList<DeliveryAgent> delvAgentList;
     delvAgentList = new ArrayList<DeliveryAgent>();
     int delvCount = 0;
+
     ArrayList<Customer> orderList;
     orderList = new ArrayList<Customer>();
+
     Scanner scannerObj = new Scanner(System.in);
+
     System.out.println("\n-----The Master Interface-----");
     System.out.println("Welcome!!!");
 
     int choice = 0;
     int id, nCopies;
-
+    // do while loop, the loop will terminate only if 11 is entered
     do {
+      // Set of Instructions to operate the Interface
       System.out.println("\nChoice-1:  Create an Entity");
       System.out.println("Choice-2:  Delete an Entity");
       System.out.println("Choice-3:  Print an Entity");
@@ -44,9 +52,9 @@ public class Main {
       System.out.println("Choice-11: Close the Program\n");
       System.out.println("Please Enter Choice Number...");
 
-      choice = scannerObj.nextInt();
+      choice = scannerObj.nextInt(); // input from user for variable choice
       switch (choice) {
-        case 1:
+        case 1: // Create an Entity
           System.out.println("\nChoice-1: Create a Manufacturer");
           System.out.println("Choice-2: Create a Customer");
           System.out.println("Choice-3: Create a Product");
@@ -55,48 +63,48 @@ public class Main {
           System.out.println("Please Enter Choice Number...");
           choice = scannerObj.nextInt();
           switch (choice) {
-            case 1:
+            case 1: // Create a Manufacturer
               Manufacturer newManufacturer;
-              newManufacturer = new Manufacturer();
-              createManufacturer(newManufacturer, scannerObj);
-              newManufacturer.id = 100+mfCount++;
-              manufacturerList.add(newManufacturer);
+              newManufacturer = new Manufacturer(); // Initialisation of object 
+              createManufacturer(newManufacturer, scannerObj); // this function will take input from user and assign attributes to object
+              newManufacturer.id = 100+mfCount++; // ID generation
+              manufacturerList.add(newManufacturer); // adding to array list
               System.out.printf("\nManufacturer Added Successfully!!! with ID: %d\n",newManufacturer.id);
               break;
 
-            case 2:
+            case 2: // Create a Customer
               Customer newCustomer;
-              newCustomer = new Customer();
-              createCustomer(newCustomer, scannerObj);
-              newCustomer.id = 200+custCount++;
-              customerList.add(newCustomer);
+              newCustomer = new Customer(); // Initialisation of object
+              createCustomer(newCustomer, scannerObj); // this function will take input from user and assign attributes to object
+              newCustomer.id = 200+custCount++; // ID generation
+              customerList.add(newCustomer); // adding to array list
               System.out.printf("\nCustomer Added Successfully!!! with ID: %d\n",newCustomer.id);
               break;
 
-            case 3:
+            case 3: // Create a Product
               Product newProduct;
-              newProduct = new Product();
-              createProduct(newProduct, scannerObj);
-              newProduct.id = 300+prodCount++;
-              productList.add(newProduct);
+              newProduct = new Product(); // Initialisation of object
+              createProduct(newProduct, scannerObj); // this function will take input from user and assign attributes to object
+              newProduct.id = 300+prodCount++; // ID generation
+              productList.add(newProduct); // adding to array list
               System.out.printf("\nProduct Added Successfully!!! with ID: %d\n", newProduct.id);
               break;
 
-            case 4:
+            case 4: // Create a Shop
               ShopsNWarehouses newShop;
-              newShop = new ShopsNWarehouses();
-              createShop(newShop, scannerObj);
-              newShop.id = 400+shopCount++;
-              shopsList.add(newShop);
+              newShop = new ShopsNWarehouses(); // Initialisation of object
+              createShop(newShop, scannerObj); // this function will take input from user and assign attributes to object
+              newShop.id = 400+shopCount++; // ID generation
+              shopsList.add(newShop); // adding to array list
               System.out.printf("\nShop/Warehouse Added Successfully!!! with ID: %d\n", newShop.id);
               break;
 
-            case 5:
-              DeliveryAgent newDeliveryAgent;
-              newDeliveryAgent = new DeliveryAgent();
-              createDelivery(newDeliveryAgent, scannerObj);
-              newDeliveryAgent.id = 500+delvCount++;
-              delvAgentList.add(newDeliveryAgent);
+            case 5: // Create a Delivery Agent
+              DeliveryAgent newDeliveryAgent; 
+              newDeliveryAgent = new DeliveryAgent(); // Initialisation of object
+              createDelivery(newDeliveryAgent, scannerObj); // this function will take input from user and assign attributes to object
+              newDeliveryAgent.id = 500+delvCount++; // ID generation
+              delvAgentList.add(newDeliveryAgent); // adding to array list
               System.out.printf("\nDelivery Agent Added Successfully!!! with ID: %d\n", newDeliveryAgent.id);
               break;
 
@@ -105,7 +113,7 @@ public class Main {
           }
           break;
 
-        case 2:
+        case 2: // Delete an Entity
           System.out.println("\nChoice-1: Delete a Manufacturer");
           System.out.println("Choice-2: Delete a Customer");
           System.out.println("Choice-3: Delete a Product");
@@ -114,19 +122,20 @@ public class Main {
           System.out.println("Please Enter Choice Number...");
           choice = scannerObj.nextInt();
           switch (choice) {
-            case 1:
+            case 1: // Delete a Manufacturer
+              // manufacturer will be deleted it from the list of manufactures and also its association with the product 
               System.out.println("\nChoice-1: Search by ID");
               System.out.println("Choice-2: Search by Name");
               System.out.println("Please Enter Choice Number...");
               choice = scannerObj.nextInt();
               switch (choice) {
-                case 1:
+                case 1: // delete using ID
                   System.out.println("\nEnter the Manufacturer ID: ");
                   id = scannerObj.nextInt();
-                  int out = searchMf(manufacturerList, id);
+                  int out = searchMf(manufacturerList, id); // this function will return index of the required of manufacturer and -1 in case it is not found
                   if (out != -1) {
                     Manufacturer emptyManufacturer;
-                    emptyManufacturer = new Manufacturer();
+                    emptyManufacturer = new Manufacturer(); // to assign it with the product related to this manufacturer
                     for (int i = 0; i < manufacturerList.get(out).product_list.size(); i++) {
                       productList.get(searchProd(productList, manufacturerList.get(out).product_list.get(i).id)).manufacturer = emptyManufacturer;
                     }
@@ -135,16 +144,16 @@ public class Main {
                   } else {
                     System.out.println("Please Enter a correct Manufacturer ID");
                   }
-                  break;
-                case 2:
+                  break; 
+                case 2: // delete using name
                   String name;
                   scannerObj.nextLine();
                   System.out.println("Enter the Manufacturer Name: ");
                   name = scannerObj.nextLine();
-                  out = searchMf(manufacturerList, name);
+                  out = searchMf(manufacturerList, name); // this function will return index of the required of manufacturer and -1 in case it is not found
                   if (out != -1) {
                     Manufacturer emptyManufacturer;
-                    emptyManufacturer = new Manufacturer();
+                    emptyManufacturer = new Manufacturer(); // to assign it with the product related to this manufacturer
                     for (int i = 0; i < manufacturerList.get(out).product_list.size(); i++) {
                       productList.get(searchProd(productList, manufacturerList.get(out).product_list.get(i).id)).manufacturer = emptyManufacturer;
                     }
@@ -154,21 +163,22 @@ public class Main {
                     System.out.println("Please Enter a correct Manufacturer Name");
                   }
                   break;
-                default:
+                default: 
                   break;
               }
               break;
 
-            case 2:
+            case 2: // Delete a Customer
+              // Customer and its purchase history will be deleted from the customer list
               System.out.println("\nChoice-1: Search by ID");
               System.out.println("Choice-2: Search by Name");
               System.out.println("Please Enter Choice Number...");
               choice = scannerObj.nextInt();
               switch (choice) {
-                case 1:
+                case 1: // delete using ID
                   System.out.println("\nEnter the Customer ID: ");
                   id = scannerObj.nextInt();
-                  int out = searchCust(customerList, id);
+                  int out = searchCust(customerList, id); // this function will return index of the required of customer and -1 in case it is not found
                   if (out != -1) {
                     customerList.remove(out);
                     System.out.println("Customer Deleted Successfully!!!");
@@ -176,12 +186,12 @@ public class Main {
                     System.out.println("Please Enter a correct Customer ID");
                   }
                   break;
-                case 2:
+                case 2: // delete using name
                   String name;
                   scannerObj.nextLine();
                   System.out.println("Enter the Customer Name: ");
                   name = scannerObj.nextLine();
-                  out = searchCust(customerList, name);
+                  out = searchCust(customerList, name); // this function will return index of the required of customer and -1 in case it is not found
                   if (out != -1) {
                     customerList.remove(out);
                     System.out.println("Customer Deleted Successfully!!!");
@@ -194,20 +204,22 @@ public class Main {
               }
               break;
 
-            case 3:
+            case 3: // Delete a Product
+              // product will be deleted from product list as well as from its manufacturer and all shop's inventories
               System.out.println("\nChoice-1: Search by ID");
               System.out.println("Choice-2: Search by Name");
               System.out.println("Please Enter Choice Number...");
               choice = scannerObj.nextInt();
               switch (choice) {
-                case 1:
+                case 1: // delete using ID
                   System.out.println("\nEnter the Product ID: ");
                   id = scannerObj.nextInt();
                   int out = searchProd(productList, id);
                   if (out != -1) {
                     int out1 = searchMf(manufacturerList, productList.get(out).manufacturer.id);
                     manufacturerList.get(out1).product_list
-                        .remove(searchProd(manufacturerList.get(out1).product_list, id));
+                        .remove(searchProd(manufacturerList.get(out1).product_list, id)); // product removal from manufacturer
+                    // product removal from all the shops
                     for (int i = 0; i < shopsList.size(); i++) {
                       for (int j = 0; j < shopsList.get(i).prodList.size(); j++) {
                         if (shopsList.get(i).prodList.get(j).product.id == id) {
@@ -221,12 +233,13 @@ public class Main {
                     System.out.println("Please Enter a correct Product ID");
                   }
                   break;
-                case 2:
+                case 2: // delete using name
                   String name;
                   scannerObj.nextLine();
                   System.out.println("Enter the Product Name: ");
                   name = scannerObj.nextLine();
                   out = searchProd(productList, name);
+                  // same as delete using id
                   if (out != -1) {
                     int out1 = searchMf(manufacturerList, productList.get(out).manufacturer.id);
                     manufacturerList.get(out1).product_list
@@ -249,13 +262,14 @@ public class Main {
               }
               break;
 
-            case 4:
+            case 4: // Delete a Shop
+              // shop will be deleted with all its inventory 
               System.out.println("\nChoice-1: Search by ID");
               System.out.println("Choice-2: Search by Name");
               System.out.println("Please Enter Choice Number...");
               choice = scannerObj.nextInt();
               switch (choice) {
-                case 1:
+                case 1: // delete using ID
                   System.out.println("\nEnter the Shop/Warehouse ID: ");
                   id = scannerObj.nextInt();
                   int out = searchShop(shopsList, id);
@@ -266,7 +280,7 @@ public class Main {
                     System.out.println("Please Enter a correct Shop/Warehouse ID");
                   }
                   break;
-                case 2:
+                case 2: // delete using name
                   String name;
                   scannerObj.nextLine();
                   System.out.println("Enter the Shop/Warehouse Name: ");
@@ -284,13 +298,14 @@ public class Main {
               }
               break;
 
-            case 5:
+            case 5: // Delete a Delivery Agent
+              // agent will be deleted
               System.out.println("\nChoice-1: Search by ID");
               System.out.println("Choice-2: Search by Name");
               System.out.println("Please Enter Choice Number...");
               choice = scannerObj.nextInt();
               switch (choice) {
-                case 1:
+                case 1: // delete using ID
                   System.out.println("\nEnter the Delivery Agent ID: ");
                   id = scannerObj.nextInt();
                   int out = searchDelv(delvAgentList, id);
@@ -301,7 +316,7 @@ public class Main {
                     System.out.println("Please Enter a correct Delivery ID");
                   }
                   break;
-                case 2:
+                case 2: // delete using name
                   String name;
                   scannerObj.nextLine();
                   System.out.println("Enter the Delivery Agent Name: ");
@@ -324,7 +339,9 @@ public class Main {
           }
           break;
 
-        case 3:
+        case 3: // dispaly a entity
+          // all lists of entities are iterated and properties like name, id, zip are printed
+          // functions are written for reusibility
           System.out.println("\nChoice-1: Display List of Manufacturers");
           System.out.println("Choice-2: Display List of Customers");
           System.out.println("Choice-3: Display List of Products");
@@ -358,22 +375,23 @@ public class Main {
           }
           break;
 
-        case 4:
+        case 4: // addition of  product to manufacturer
+          // id_4_1 and ind_4_1 are variables to store id and index wherever required
           int id_4_1,id_4_2;
           int ind_4_1, ind_4_2;
-          printProdList(productList);
-          System.out.println("Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity");
+          printProdList(productList); // to show available options
+          System.out.println("Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity"); // as no id can have -1 value
           id_4_1 = scannerObj.nextInt();
-          ind_4_1 = searchProd(productList,id_4_1);
+          ind_4_1 = searchProd(productList,id_4_1); // function will return index if the product id is present or will return -1
           if(ind_4_1!=-1){
-            printMfList(manufacturerList);
-            System.out.println("Enter ID of the Desired Manufacturer, If the Manufacturer is not in the List Enter -1 & add it using Create an Entity");
+            printMfList(manufacturerList); // to show available manufacturers
+            System.out.println("Enter ID of the Desired Manufacturer, If the Manufacturer is not in the List Enter -1 & add it using Create an Entity"); // as no id can have -1 value
             id_4_2 = scannerObj.nextInt();
-            ind_4_2 = searchMf(manufacturerList, id_4_2);
+            ind_4_2 = searchMf(manufacturerList, id_4_2); // function will return index if manufacturer id is present or will return -1
             if(ind_4_2!=-1){
-              manufacturerList.get(ind_4_2).product_list.add(productList.get(ind_4_1));
-              productList.get(ind_4_1).manufacturer = manufacturerList.get(ind_4_2);
-              System.out.println("Product Added to the Manufacturer Successfully!!!");
+              manufacturerList.get(ind_4_2).product_list.add(productList.get(ind_4_1)); // adding product to manufacturer
+              productList.get(ind_4_1).manufacturer = manufacturerList.get(ind_4_2); // adding manufacturer to the product
+              System.out.println("\nProduct Added to the Manufacturer Successfully!!!");
             }
             else{
               System.out.println("Please Enter a correct Manufacturer ID");
@@ -385,31 +403,32 @@ public class Main {
           }
           break;
 
-        case 5:
-          printProdList(productList);
+        case 5: // addition of product to shop
+          printProdList(productList); // display available products
           System.out.println(
-              "Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity");
+              "Enter ID of the Desired Product, If the Product is not in the List Enter -1 & add it using Create an Entity"); // as no id can have -1 value 
           int id_5_1, id_5_2, ind_5_1, ind_5_2;
           id_5_1 = scannerObj.nextInt();
+          // checking for if entered id is present or not
           if (searchProd(productList, id_5_1) == -1) {
             System.out.println("Please Enter a correct Product ID");
             break;
           }
           System.out.println("Enter the Number of Copies");
           nCopies = scannerObj.nextInt();
-          printShopsList(shopsList);
+          printShopsList(shopsList); // display available shops
           System.out.println(
-              "Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity");
+              "Enter ID of the Desired Shop/Warehouse, If the Shop/Warehouse is not in the List Enter -1 & add it using Create an Entity"); // as no id can have -1 value
           id_5_2 = scannerObj.nextInt();
-          ind_5_1 = searchShop(shopsList, id_5_2);
+          ind_5_1 = searchShop(shopsList, id_5_2); // search for shop with given id
           if (ind_5_1 == -1) {
             System.out.println("Please Enter a correct Shop/Warehouse ID");
             break;
           }
-          ind_5_2 = searchTuple(shopsList.get(ind_5_1).prodList, id_5_1);
+          ind_5_2 = searchTuple(shopsList.get(ind_5_1).prodList, id_5_1); // check if the product is already available in the sjop
           if(ind_5_2!=-1){
-            shopsList.get(ind_5_1).prodList.get(ind_5_1).prodCount+=nCopies;
-          }else{
+            shopsList.get(ind_5_1).prodList.get(ind_5_2).prodCount+=nCopies; // if already available then just increase its count
+          }else{ // if not already available then add the product to the inventory list
             Tuple newTuple_5;
             newTuple_5 = new Tuple();
             newTuple_5.product = productList.get(searchProd(productList, id_5_1));
@@ -419,17 +438,19 @@ public class Main {
           System.out.println("\nProduct added Successfully!!!");
           break;
 
-        case 6:
+        case 6: // order from a customer
           int id_6_1, id_6_2;
-          printCustList(customerList);
+          int ind_6_1;
+          printCustList(customerList); // display available customers
           System.out.println(
-              "Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity");
+              "Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity"); // as no id can have -1 value
           id_6_1 = scannerObj.nextInt();
-          if (searchCust(customerList, id_6_1) == -1) {
+          ind_6_1 = searchCust(customerList, id_6_1); // checking for correct id
+          if (ind_6_1 == -1) {
             System.out.println("Please Enter a correct Customer ID");
             break;
           }
-          printProdList(productList);
+          printProdList(productList); // diplay available products
           System.out.println("Enter ID of the Desired Product");
           id_6_2 = scannerObj.nextInt();
           if (searchProd(productList, id_6_2) == -1) {
@@ -438,23 +459,29 @@ public class Main {
           }
           System.out.println("Enter the Number of Copies");
           nCopies = scannerObj.nextInt();
-          Customer newCustomer_6;
+          Customer newCustomer_6; // customer object for adding it to order list
           newCustomer_6 = new Customer();
-          newCustomer_6.id = customerList.get(searchCust(customerList, id_6_1)).id;
-          newCustomer_6.zip = customerList.get(searchCust(customerList, id_6_1)).zip;
-          newCustomer_6.name = customerList.get(searchCust(customerList, id_6_1)).name;
-
+          newCustomer_6.id = customerList.get(ind_6_1).id;
+          newCustomer_6.zip = customerList.get(ind_6_1).zip;
+          newCustomer_6.name = customerList.get(ind_6_1).name;
+          // tuple to add order details in the product list of customer
           Tuple newTuple_6;
           newTuple_6 = new Tuple();
           newTuple_6.prodCount = nCopies;
           newTuple_6.product = productList.get(searchProd(productList, id_6_2));
           newCustomer_6.product_list.add(newTuple_6);
+          // product list with only 1 element
           orderList.add(newCustomer_6);
-          System.out.println("Order Added Successfully!!!");
+          System.out.println("\nOrder Added Successfully!!!");
           break;
 
-        case 7:
-          System.out.println("List of Pending Orders: ");
+        case 7: // order processing
+          // 1.checking of pending order, 2.selecting one order, 3.checking for avaibility of shop in same zip code
+          // 4.checking for avaibility of product with required quantity in the shop
+          // 5.checking for avaibility of delivery agent in the customer's zip code
+
+          // step-1 checking of pending order
+          System.out.println("List of Pending Orders: "); 
           for (int i = 0; i < orderList.size(); i++) {
             System.out.printf("\nOrder No.%d:\n", i + 1);
             System.out.printf("Customer ID: %d, ", orderList.get(i).id);
@@ -469,23 +496,31 @@ public class Main {
           if(orderList.size()==0){
             System.out.println("This List is Empty");
           }
+
+          // step-2 selecting one order
           System.out.println("Select Order Number to be Proceed: ");
           int ordNum = scannerObj.nextInt();
+
           boolean shopReady = false, delvReady = false;
           int shopInd = 0, delvInd = 0, prodInd = 0;
           int minDelvery = Integer.MAX_VALUE;
+          
           for (int i = 0; i < shopsList.size(); i++) {
+            //step-3 checking for avaibility of shop in same zip code
             if (shopsList.get(i).zip != orderList.get(ordNum - 1).zip) {
               continue;
             }
+            //step-4 checking for avaibility of product with required quantity in the shop
             for (int j = 0; j < shopsList.get(i).prodList.size(); j++) {
+              // product checking
               if (shopsList.get(i).prodList.get(j).product.id == orderList.get(ordNum - 1).product_list
                   .get(0).product.id) {
+                // quantity checking
                 if (shopsList.get(i).prodList.get(j).prodCount >= orderList.get(ordNum - 1).product_list
                     .get(0).prodCount) {
                   shopReady = true;
-                  shopInd = i;
-                  prodInd = j;
+                  shopInd = i; // save info about shop index 
+                  prodInd = j; // save info about product index
                   break;
                 }
               }
@@ -494,16 +529,21 @@ public class Main {
               break;
             }
           }
+
+          // step-5 checking for avaibility of delivery agent in the customer's zip code
+          // minDelvery variable will ensure that order is given to agent with minimum deliveries
           for (int i = 0; i < delvAgentList.size(); i++) {
             if (delvAgentList.get(i).zip == orderList.get(ordNum - 1).zip
                 && delvAgentList.get(i).prodDelivered < minDelvery) {
               delvReady = true;
-              delvInd = i;
+              delvInd = i; // save index of delivery agent
               minDelvery = delvAgentList.get(i).prodDelivered;
             }
           }
+
+          // if shop and delivery agent conditions are satisfied then go for placing order
           if (delvReady && shopReady) {
-            System.out.println("Order Placed Successfully!!!");
+            System.out.println("\nOrder Placed Successfully!!!");
             System.out.println("Order Details:");
             System.out.printf("Customer ID: %d, ", orderList.get(ordNum - 1).id);
             System.out.printf("Name: %s, ", orderList.get(ordNum - 1).name);
@@ -515,13 +555,16 @@ public class Main {
             System.out.printf("Delivery Agent ID: %d, Name: %s\n", delvAgentList.get(delvInd).id,
                 delvAgentList.get(delvInd).name);
             System.out.printf("Shop ID: %d, Name: %s\n", shopsList.get(shopInd).id, shopsList.get(shopInd).name);
-            delvAgentList.get(delvInd).prodDelivered++;
+            delvAgentList.get(delvInd).prodDelivered++; // add order delivered for the agent
             customerList.get(searchCust(customerList, orderList.get(ordNum - 1).id)).product_list
-                .add(orderList.get(ordNum - 1).product_list.get(0));
+                .add(orderList.get(ordNum - 1).product_list.get(0)); // add order in customer's history
             shopsList.get(shopInd).prodList.get(prodInd).prodCount -= orderList.get(ordNum - 1).product_list
-                .get(0).prodCount;
-            orderList.remove(ordNum - 1);
-          } else {
+                .get(0).prodCount; // update shop's inventory
+            if(shopsList.get(shopInd).prodList.get(prodInd).prodCount==0){
+              shopsList.get(shopInd).prodList.remove(prodInd);
+            }
+            orderList.remove(ordNum - 1); // remove order from the order list
+          } else { // showing reasons behind order failure
             if (!shopReady) {
               System.out.println("Product Demand can't be Satisfied");
             } else {
@@ -530,9 +573,10 @@ public class Main {
           }
           break;
 
-        case 8:
+        case 8: // list all purchases made by customer
+          // as customer purchase history is well maintained while order processing we can easily print it using traversing the list
           int id_8_1;
-          printCustList(customerList);
+          printCustList(customerList); // available customers
           System.out.println(
               "Enter ID of the Desired Customer, If the Customer is not in the List Enter -1 & add it using Create an Entity");
           id_8_1 = scannerObj.nextInt();
@@ -555,7 +599,9 @@ public class Main {
 
           break;
 
-        case 9:
+        case 9: // list of shop inventory
+          // it is also well maintained while processing order and adding product to the shop or deleting product, so to print 
+          // just iteration through list is sufficient
           int id_9_1;
           printShopsList(shopsList);
           System.out.println(
@@ -578,7 +624,9 @@ public class Main {
           }
           break;
 
-        case 10:
+        case 10: // products made by manufacturer
+          // maintained while adding product to manufacturer and deleting product
+          // iteration through list is sufficient
           int id_10;
           printMfList(manufacturerList);
           System.out.println(
@@ -599,10 +647,10 @@ public class Main {
           }
           break;
 
-        case 11:
+        case 11: // exit from the program
           break;
 
-        default:
+        default: // in case of wrong input
           System.out.println("Wrong Choice Entered, Please Try Again Carefully");
           break;
       }
@@ -610,6 +658,8 @@ public class Main {
     System.out.println("\nThank You!!!\n");
     scannerObj.close();
   }
+
+  // create functions for taking input and saving them in new entities
 
   static void createManufacturer(Manufacturer input, Scanner scannerObj) {
     String name;
@@ -663,6 +713,7 @@ public class Main {
     input.zip = zip;
   }
 
+  // printing functions for iterating through array and printing information
   static void printMfList(ArrayList<Manufacturer> input) {
     System.out.println("\nList of all Manufactures:");
     int count = 1;
@@ -732,6 +783,7 @@ public class Main {
     }
   }
 
+  // searching functions to iterate through lists and returning index corresponding to id or name
   static int searchMf(ArrayList<Manufacturer> input, int id) {
     for (int i = 0; i < input.size(); i++) {
       if (id == input.get(i).id) {
@@ -831,6 +883,7 @@ public class Main {
     return -1;
   }
 
+  // used while checking manufacturer already exists or not while adding product to manufacturer
   static int addProdToMf(Product newProduct, ArrayList<Manufacturer> mflist, Manufacturer mfInput) {
     if (searchMf(mflist, mfInput.id) != -1) {
       mflist.get(searchMf(mflist, mfInput.id)).product_list.add(newProduct);

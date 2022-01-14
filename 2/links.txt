@@ -1,0 +1,3 @@
+http://rapidxml.sourceforge.net/manual.html
+https://nlp.stanford.edu/IR-book/html/htmledition/basic-xml-concepts-1.html
+https://stackoverflow.com/questions/5717474/rapidxml-parse-error-with-url-attribute

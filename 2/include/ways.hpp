@@ -6,6 +6,5 @@ public:
     string name;
     long long int id;
     vector<nodes> wayPoints;
-
-private:
 };
+

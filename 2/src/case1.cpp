@@ -1,42 +1,81 @@
 #include <bits/stdc++.h>
 #include <nodes.hpp>
 #include <ways.hpp>
+#include <case1.hpp>
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
 
 using namespace rapidxml;
 using namespace std;
 
-void storeInput(vector<nodes> nodesList)
-{   
+void storeInput(unordered_map<long long, nodes> nodesList, vector<ways> waysList)
+{
     file<> file("map.osm");
     xml_document<> doc;
     doc.parse<0>(file.data());
     xml_node<> *node = doc.first_node()->first_node();
     int countNode = 0, countWay = 0;
-    for(xml_node<> *node = doc.first_node()->first_node(); node; node = node->next_sibling()){
+    for (xml_node<> *node = doc.first_node()->first_node(); node; node = node->next_sibling())
+    {
         if (!strcmp(node->name(), "node"))
-        {       
-            for(xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute()){
-                if(strcmp(attr->name(),"id")){
-
+        {
+            nodes temp;
+            for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
+            {
+                if (!strcmp(attr->name(), "id"))
+                {
+                    temp.id = stoll(attr->value());
+                }
+                if (!strcmp(attr->name(), "lat"))
+                {
+                    temp.lat = stod(attr->value());
+                }
+                if (!strcmp(attr->name(), "lon"))
+                {
+                    temp.lon = stod(attr->value());
                 }
             }
-            
-            // xml_node<> *elementNode = node->first_node();
-            // do
-            // {   
-
-            //     elementNode = elementNode->next_sibling();
-            // }
-            // while (elementNode != node->last_node());
-                countNode++;
+            for (xml_node<> *elementNode = node->first_node(); elementNode; elementNode = elementNode = elementNode->next_sibling())
+            {
+                for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
+                {
+                    if (!strcmp(attr->value(), "name"))
+                    {
+                        temp.name = attr->next_attribute()->value();
+                        break;
+                    }
+                }
+            }
+            nodesList[temp.id] = temp;
+            countNode++;
         }
         if (!strcmp(node->name(), "way"))
         {
+            ways temp;
+            for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
+            {
+                if (!strcmp(attr->name(), "id"))
+                {
+                    temp.id = stoll(attr->value());
+                }
+            }
+            nodes tempNode;
+            for (xml_node<> *elementNode = node->first_node(); elementNode; elementNode = elementNode = elementNode->next_sibling())
+            {
+                if (!strcmp(elementNode->name(), "nd"))
+                {
+                    temp.wayPoints.push_back(nodesList[stod(elementNode->first_attribute()->value())]);
+                }
+            }
+            waysList.push_back(temp);
             countWay++;
         }
     }
     cout << "Number of Nodes are: " << countNode << "\n";
     cout << "Number of Ways are: " << countWay << "\n";
+}
+
+void searchInput(unordered_map<long long, nodes> nodesList, string input)
+{
+    
 }

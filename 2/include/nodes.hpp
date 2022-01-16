@@ -8,6 +8,3 @@ public:
     double lat;
     double lon;
 };
-
-void storeInput(vector<nodes> nodesList);
-void searchName(vector<nodes> nodesList);

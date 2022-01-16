@@ -8,7 +8,7 @@
 using namespace rapidxml;
 using namespace std;
 
-void storeInput(unordered_map<long long, nodes> &nodesList, vector<ways> &waysList)
+void storeInput(unordered_map<long long int, nodes> &nodesList, vector<ways> &waysList)
 {
     file<> file("map.osm");
     xml_document<> doc;
@@ -82,10 +82,10 @@ void printNode(nodes input)
     cout << "Latitude: " << input.lat << " Longitude: " << input.lon << endl;
 }
 
-void searchInput(unordered_map<long long, nodes> &nodesList, string input)
+void searchInput(unordered_map<long long int, nodes> &nodesList, string input)
 {
     int count = 1;
-    unordered_map<long long, nodes>::iterator itr;
+    unordered_map<long long int, nodes>::iterator itr;
     cout << "Found following nodes: \n";
     for (itr = nodesList.begin(); itr != nodesList.end(); itr++)
     {
@@ -95,4 +95,5 @@ void searchInput(unordered_map<long long, nodes> &nodesList, string input)
             printNode(itr->second);
         }
     }
+    cout << endl;
 }

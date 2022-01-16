@@ -5,6 +5,8 @@ class nodes
 public:
     string name;
     long long int id;
-    double lat;
-    double lon;
+    long double lat;
+    long double lon;
 };
+
+void printNode(nodes input);

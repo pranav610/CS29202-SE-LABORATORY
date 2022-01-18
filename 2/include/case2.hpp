@@ -1,14 +1,15 @@
 using namespace std;
 
-typedef pair<long double, nodes> Pair;
+typedef pair<ld, nodes> Pair; // Pair to make priority queue
 
-class CompareDist
+class compareDist // custom comparator for comparing pair such that min heap is created
 {
 public:
-    bool operator()(Pair n1,Pair n2) {
+    bool operator()(Pair n1, Pair n2)
+    {
         return n1.first > n2.first;
     }
 };
 
-long double crowFlyDist(long double lat1, long double lon1, long double lat2, long double lon2);
-void findKNearest(unordered_map<long long int, nodes> &nodesList, long long int id, int k);
+ld crowFlyDist(ld lat1, ld lon1, ld lat2, ld lon2);                   // direct distance between two points using latitudes and longitudes
+void findKNearest(unordered_map<ll, nodes> &nodesList, ll id, int k); // will return K nearest nodes to the input node

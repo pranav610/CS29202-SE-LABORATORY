@@ -1,5 +1,8 @@
 using namespace std;
 
-void createAdjList(unordered_map<long long int, unordered_map<long long int, long double>> &input, unordered_map<long long int, nodes> &nodesList, vector<ways> waysList);
-void dijkstra(unordered_map<long long int, unordered_map<long long int, long double>> &adjList, unordered_map<long long int, nodes> &nodesList, nodes source, nodes dest);
-void printPath(unordered_map<long long int, long long int> &parent, unordered_map<long long int, nodes> &nodesList, long long int dest, long long int source);
+// adjacency list is unordered map of id and list of adjacent nodes stored in the form of unordered map
+void createAdjList(unordered_map<ll, unordered_map<ll, ld>> &adjList, unordered_map<ll, nodes> &nodesList, vector<ways> waysList); 
+// standard dijkstra algorithm
+void dijkstra(unordered_map<ll, unordered_map<ll, ld>> &adjList, unordered_map<ll, nodes> &nodesList, nodes source, nodes dest);
+// path printing using parent matrix
+void printPath(unordered_map<ll, ll> &parent, unordered_map<ll, nodes> &nodesList, ll dest, ll source);

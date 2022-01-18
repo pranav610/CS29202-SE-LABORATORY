@@ -5,13 +5,14 @@
 #include <case2.hpp>
 #include <case3.hpp>
 
-const long double INF = 1e9 + 10;
+const ld INF = 1e9 + 10;
 
 using namespace std;
 
-void printPath(unordered_map<long long int, long long int> &parent, unordered_map<long long int, nodes> &nodesList, long long int dest, long long int source)
+// path printing using parent matrix O(number of nodes between source and destination in shortest path)
+void printPath(unordered_map<ll, ll> &parent, unordered_map<ll, nodes> &nodesList, ll dest, ll source)
 {
-    vector<nodes> path;
+    vector<nodes> path; // to store nodes in the path
     cout << "Following is Path for the given source and destination: \n";
     path.insert(path.begin(), nodesList[dest]);
     nodes temp = nodesList[parent[dest]];
@@ -21,7 +22,7 @@ void printPath(unordered_map<long long int, long long int> &parent, unordered_ma
         temp = nodesList[parent[temp.id]];
     }
     path.insert(path.begin(), nodesList[source]);
-    cout << "Path contains " << path.size() << " nodes. Do you want to print all of them ? Enter 1 to print path, 0 to skip path printing\n";
+    cout << "Path contains " << path.size() << " nodes. Do you want to print all of them ?\nEnter 1 to print path, 0 to skip path printing\n";
     int choice;
     cout << "Choice: ";
     cin >> choice;
@@ -36,48 +37,50 @@ void printPath(unordered_map<long long int, long long int> &parent, unordered_ma
     }
 }
 
-void createAdjList(unordered_map<long long int, unordered_map<long long int, long double>> &adjList, unordered_map<long long int, nodes> &nodesList, vector<ways> waysList)
+// creation of adjacency list 
+void createAdjList(unordered_map<ll, unordered_map<ll, ld>> &adjList, unordered_map<ll, nodes> &nodesList, vector<ways> waysList)
 {
-    for (int i = 0; i < waysList.size(); i++)
+    for (int i = 0; i < waysList.size(); i++) // TC = O(number of ways)
     {
-        for (int j = 0; j < waysList[i].wayPoints.size() - 1; j++)
+        for (int j = 0; j < waysList[i].wayPoints.size() - 1; j++) // TC = O(number of nodes in the way)
         {
-            long double wt = crowFlyDist(waysList[i].wayPoints[j].lat, waysList[i].wayPoints[j].lon, waysList[i].wayPoints[j + 1].lat, waysList[i].wayPoints[j + 1].lon);
+            ld wt = crowFlyDist(waysList[i].wayPoints[j].lat, waysList[i].wayPoints[j].lon, waysList[i].wayPoints[j + 1].lat, waysList[i].wayPoints[j + 1].lon);
             adjList[waysList[i].wayPoints[j].id][waysList[i].wayPoints[j + 1].id] = wt;
             adjList[waysList[i].wayPoints[j + 1].id][waysList[i].wayPoints[j].id] = wt;
         }
     }
 }
 
-void dijkstra(unordered_map<long long int, unordered_map<long long int, long double>> &adjList, unordered_map<long long int, nodes> &nodesList, nodes source, nodes dest)
+// dijkstra implementation with priority queue TC = O(|E|log|V|) 
+void dijkstra(unordered_map<ll, unordered_map<ll, ld>> &adjList, unordered_map<ll, nodes> &nodesList, nodes source, nodes dest)
 {
-    priority_queue<Pair, vector<Pair>, CompareDist> pq;
-    unordered_map<long long int, long double> dist;
-    unordered_map<long long int, bool> isVisited;
-    unordered_map<long long int, long long int> parent;
+    priority_queue<Pair, vector<Pair>, compareDist> pq; // min heap
+    unordered_map<ll, ld> dist; // array to store distance from source node to other nodes
+    unordered_map<ll, bool> isVisited; // checking if some node is already visited or not 
+    unordered_map<ll, ll> parent; // for storing parent of each visited node
 
-    unordered_map<long long int, nodes>::iterator itr;
-    for (itr = nodesList.begin(); itr != nodesList.end(); itr++)
+    unordered_map<ll, nodes>::iterator itr;
+    for (itr = nodesList.begin(); itr != nodesList.end(); itr++) // initialising above data structures TC = O(|V|)
     {
         isVisited[itr->first] = false;
         dist[itr->first] = INF;
         parent[itr->first] = -1;
     }
 
-    pq.push(make_pair(0, source));
+    pq.push(make_pair(0, source)); // adding source in priority queue with 0 distance
     dist[source.id] = 0;
 
-    while (!pq.empty())
+    while (!pq.empty()) // while loop until priority queue is not empty
     {
         nodes temp = pq.top().second;
         isVisited[temp.id] = true;
         pq.pop();
 
-        unordered_map<long long int, long double>::iterator itr;
-        for (itr = adjList[temp.id].begin(); itr != adjList[temp.id].end(); itr++)
+        unordered_map<ll, ld>::iterator itr;
+        for (itr = adjList[temp.id].begin(); itr != adjList[temp.id].end(); itr++) // iterating through all neighbours 
         {
-            long long int nghID = itr->first;
-            if (dist[nghID] > dist[temp.id] + adjList[temp.id][nghID] && !isVisited[nghID])
+            ll nghID = itr->first;
+            if (dist[nghID] > dist[temp.id] + adjList[temp.id][nghID] && !isVisited[nghID]) // updating distance if new one is lesser
             {
                 dist[nghID] = dist[temp.id] + adjList[temp.id][nghID];
                 parent[nghID] = temp.id;
@@ -86,13 +89,13 @@ void dijkstra(unordered_map<long long int, unordered_map<long long int, long dou
         }
     }
 
-    if (dist[dest.id] == INF)
+    if (dist[dest.id] == INF) // this means destination is not connected to the source
     {
         cout << "\nNo Path Found\n";
     }
     else
     {
         cout << "\nDist: " << dist[dest.id] << endl;
-        printPath(parent, nodesList, dest.id, source.id);
+        printPath(parent, nodesList, dest.id, source.id); // path printing
     }
 }

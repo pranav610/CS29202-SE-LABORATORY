@@ -71,7 +71,7 @@ void storeInput(unordered_map<long long int, nodes> &nodesList, vector<ways> &wa
             countWay++;
         }
     }
-    cout << "Number of Nodes are: " << countNode << "\n";
+    cout << "\nNumber of Nodes are: " << countNode << "\n";
     cout << "Number of Ways are: " << countWay << "\n";
 }
 
@@ -86,7 +86,7 @@ void searchInput(unordered_map<long long int, nodes> &nodesList, string input)
 {
     int count = 1;
     unordered_map<long long int, nodes>::iterator itr;
-    cout << "Found following nodes: \n";
+    cout << "\nFound following nodes: \n";
     for (itr = nodesList.begin(); itr != nodesList.end(); itr++)
     {
         if (itr->second.name.find(input) != -1)
